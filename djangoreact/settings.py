@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'server',
     'webpack_loader',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,7 +130,8 @@ STATICFILES_DIRS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ],
     'PAGE_SIZE': 10
 }

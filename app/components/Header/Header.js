@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
 import IndexLink from 'react-router/lib/IndexLink'
+import Link from 'react-router/lib/Link'
 
-const Header = () => (
+const Header = ({ user }) => (
   <nav className="navbar navbar-default">
     <div className="container-fluid">
       <div className="navbar-header">
@@ -13,9 +15,30 @@ const Header = () => (
         </button>
         <IndexLink to="/" className="navbar-brand">Django-React</IndexLink>
       </div>
-      <div className="collapse navbar-collapse" id="top-menu" />
+      <div className="collapse navbar-collapse" id="top-menu">
+        {
+          !user &&
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+        }
+      </div>
     </div>
   </nav>
 )
 
-export default Header
+Header.propTypes = {
+  user: PropTypes.object,
+}
+
+Header.defaultProps = {
+  user: null,
+}
+
+const mapStateToProps = state => ({
+  user: state.user,
+})
+
+export default connect(mapStateToProps)(Header)
