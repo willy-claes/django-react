@@ -6,6 +6,7 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     app: [
+      'babel-polyfill',
       './app/index',
     ],
   },
@@ -29,4 +30,9 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
+  resolve: {
+    alias: {
+      App: path.resolve(__dirname, './app'),
+    },
+  },
 }

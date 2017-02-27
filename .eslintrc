@@ -19,6 +19,18 @@
     "semi": [
       2, "never"
     ],
+    "no-underscore-dangle": [
+      0
+    ],
+    "react/forbid-prop-types": [
+      2,
+      {
+        "forbid": [
+          "any",
+          "array"
+        ]
+      }
+    ],
     "react/jsx-filename-extension": [
       2,
       {
