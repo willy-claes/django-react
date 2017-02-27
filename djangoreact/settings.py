@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'server.apps.ServerConfig',
+    'server',
     'webpack_loader',
     'rest_framework',
     'django.contrib.admin',
