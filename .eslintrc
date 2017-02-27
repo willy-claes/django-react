@@ -1,0 +1,29 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": [
+    "react",
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  },
+  "rules": {
+    "semi": [
+      2, "never"
+    ],
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ]
+  }
+}
