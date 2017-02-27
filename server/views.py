@@ -25,7 +25,7 @@ def index(request):
         initial_state = json.dumps({
             'user': {
                 'username': request.user.username,
-                'isAdmin': request.user.is_superuser,
+                'is_superuser': request.user.is_superuser,
             }
         })
     initial_state = json.dumps(initial_state, cls=DjangoJSONEncoder)

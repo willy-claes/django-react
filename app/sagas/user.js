@@ -6,8 +6,8 @@ import * as types from 'App/actions/types'
 
 export function* loginUserRuquest(action) {
   try {
-    const user = yield call(Api.loginUser, action.username, action.password)
-    yield put(loginUser(user))
+    const response = yield call(Api.loginUser, action.username, action.password)
+    yield put(loginUser(response.user))
     yield call(browserHistory.push, '/')
   } catch (e) {
     //

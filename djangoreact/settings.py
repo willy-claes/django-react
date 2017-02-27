@@ -136,6 +136,10 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+REST_AUTH_SERIALIZERS = {
+    'TOKEN_SERIALIZER': 'server.serializers.TokenSerializer'
+}
+
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': '/',
