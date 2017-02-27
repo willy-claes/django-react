@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
 import browserHistory from 'react-router/lib/browserHistory'
 import { loginUser, logoutUser } from 'App/actions/user'
+import { showMessageRequest } from 'App/actions/messages'
 import * as Api from 'App/services/user'
 import * as types from 'App/actions/types'
 
@@ -10,7 +11,7 @@ export function* loginUserRuquest(action) {
     yield put(loginUser(response.user))
     yield call(browserHistory.push, '/')
   } catch (e) {
-    //
+    yield put(showMessageRequest(e))
   }
 }
 

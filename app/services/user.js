@@ -8,11 +8,8 @@ export const loginUser = (username, password) => (
     }).then((response) => {
       if (response.status !== 200) {
         response.json().then((json) => {
-          let message = json.message
-          if (Array.isArray(message)) {
-            message = message.join()
-          }
-          reject(message)
+          const messages = Object.keys(json).map(key => json[key].join(','))
+          reject(messages.join(','))
         })
       } else {
         response.json().then((user) => {
